@@ -1,0 +1,76 @@
+{
+    "name": "stepanenko3/laravel-initializer",
+    "description": "A convenient way to initialize your application",
+    "type": "library",
+    "keywords": [
+        "laravel-initializer",
+        "install",
+        "update",
+        "deploy",
+        "init",
+        "initialize",
+        "exec",
+        "command",
+        "tasks",
+        "process"
+    ],
+    "homepage": "https://github.com/stepanenko3/laravel-initializer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Artem Stepanenko",
+            "email": "stpnnk.artem@gmail.com",
+            "homepage": "https://github.com/stepanenko3",
+            "role": "Developer"
+        },
+        {
+            "name": "Mad Web",
+            "email": "madweb.dev@gmail.com",
+            "homepage": "https://github.com/mad-web",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5 || ^8.0",
+        "illuminate/bus": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+        "illuminate/config": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+        "illuminate/console": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+        "illuminate/container": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+        "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+        "nunomaduro/laravel-console-task": "^1.5",
+        "symfony/process": "^4.4.11 || ^5.0.9 || ^6.0.3"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.2",
+        "mockery/mockery": "^1.3",
+        "orchestra/testbench": "^4.0 || ^5.0 || ^6.0 || ^7.0",
+        "phpunit/phpunit": "^9.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Stepanenko3\\LaravelInitializer\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Stepanenko3\\LaravelInitializer\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors=always",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Stepanenko3\\LaravelInitializer\\InitializerServiceProvider"
+            ]
+        }
+    },
+    "suggest": {
+        "laravel/framework": "Required to use additional MakeCronTask, MakeEchoServerConfig and MakeSupervisorConfig Jobs."
+    }
+}
