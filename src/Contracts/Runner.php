@@ -4,6 +4,12 @@ namespace Stepanenko3\LaravelInitializer\Contracts;
 
 interface Runner
 {
+    public function when($value = null, callable $callback = null, callable $default = null);
+
+    public function unless($value = null, callable $callback = null, callable $default = null);
+
+    public function choice(string $question, array $choices): self;
+
     public function errorMessages(): array;
 
     public function doneWithErrors(): bool;

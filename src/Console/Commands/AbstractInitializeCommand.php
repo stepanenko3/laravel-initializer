@@ -118,4 +118,16 @@ abstract class AbstractInitializeCommand extends Command
     }
 
     abstract protected function title(): string;
+
+    public function choice(
+        $question,
+        array $choices,
+        $default = null,
+        #[Deprecated]
+        $attempts = null,
+        #[Deprecated]
+        $multiple = false,
+    ) {
+        return $this->components->choice($question, $choices, $default);
+    }
 }

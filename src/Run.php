@@ -3,20 +3,22 @@
 namespace Stepanenko3\LaravelInitializer;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Traits\Conditionable;
 use Stepanenko3\LaravelInitializer\Actions\{Action, Artisan, Callback, Dispatch, External, Publish, PublishTag};
 use Stepanenko3\LaravelInitializer\Contracts\Runner as RunnerContract;
 
 class Run implements RunnerContract
 {
-    protected $artisanCommand;
+    use Conditionable;
 
     private $errorMessages = [];
 
     private $doneWithErrors = false;
 
-    public function __construct(Command $artisanCommand)
-    {
-        $this->artisanCommand = $artisanCommand;
+    public function __construct(
+        protected Command $artisanCommand,
+    ) {
+        //
     }
 
     public function errorMessages(): array
@@ -36,6 +38,24 @@ class Run implements RunnerContract
             if ($message = $action->errorMessage()) {
                 $this->errorMessages[] = $message;
             }
+        }
+
+        return $this;
+    }
+
+    public function choice(
+        string $question,
+        array $choices,
+    ): self {
+        $choice = $this->artisanCommand->choice(
+            $question,
+            array_keys($choices),
+        );
+
+        $callback = $choices[$choice] ?? null;
+
+        if ($callback && is_callable($callback)) {
+            return $callback($this, $choice) ?? $this;
         }
 
         return $this;
