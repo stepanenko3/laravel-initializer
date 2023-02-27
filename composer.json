@@ -32,11 +32,11 @@
     ],
     "require": {
         "php": "^7.2.5 || ^8.0",
-        "illuminate/bus": "^6.0 || ^7.0 || ^8.0 || ^9.0",
-        "illuminate/config": "^6.0 || ^7.0 || ^8.0 || ^9.0",
-        "illuminate/console": "^6.0 || ^7.0 || ^8.0 || ^9.0",
-        "illuminate/container": "^6.0 || ^7.0 || ^8.0 || ^9.0",
-        "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0",
+        "illuminate/bus": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
+        "illuminate/config": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
+        "illuminate/console": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
+        "illuminate/container": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
+        "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
         "nunomaduro/laravel-console-task": "^1.5",
         "symfony/process": "^4.4.11 || ^5.0.9 || ^6.0.3"
     },
