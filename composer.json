@@ -1,4 +1,5 @@
 {
+    "version": "1.3",
     "name": "stepanenko3/laravel-initializer",
     "description": "A convenient way to initialize your application",
     "type": "library",
@@ -32,18 +33,12 @@
     ],
     "require": {
         "php": "^7.2.5 || ^8.0",
-        "illuminate/bus": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
-        "illuminate/config": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
-        "illuminate/console": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
-        "illuminate/container": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
-        "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
-        "nunomaduro/laravel-console-task": "^1.5",
-        "symfony/process": "^4.4.11 || ^5.0.9 || ^6.0.3"
+        "laravel/framework": "^10.0|^11.0",
+        "symfony/process": "^4.4.11 || ^5.0.9 || ^6.0.3 || ^7.0.4"
     },
     "require-dev": {
         "laravel/pint": "^1.2",
         "mockery/mockery": "^1.3",
-        "orchestra/testbench": "^4.0 || ^5.0 || ^6.0 || ^7.0",
         "phpunit/phpunit": "^9.3"
     },
     "autoload": {
