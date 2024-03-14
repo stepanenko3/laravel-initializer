@@ -11,8 +11,6 @@ class MakeCronTask
 
     /**
      * Execute the job.
-     *
-     * @return string
      */
     public function handle(): string
     {

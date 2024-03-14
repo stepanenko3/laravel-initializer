@@ -17,8 +17,6 @@ class MakeEchoServerConfig
 
     /**
      * Execute the job.
-     *
-     * @return string
      */
     public function handle(): string
     {

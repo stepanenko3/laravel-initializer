@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Container\Container;
 use Illuminate\Support\Carbon;
 use Stepanenko3\LaravelInitializer\Run;
+
 use function Termwind\terminal;
 
 abstract class AbstractInitializeCommand extends Command
@@ -117,8 +118,6 @@ abstract class AbstractInitializeCommand extends Command
         });
     }
 
-    abstract protected function title(): string;
-
     public function choice(
         $question,
         array $choices,
@@ -130,4 +129,6 @@ abstract class AbstractInitializeCommand extends Command
     ) {
         return $this->components->choice($question, $choices, $default);
     }
+
+    abstract protected function title(): string;
 }

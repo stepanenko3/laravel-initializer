@@ -7,9 +7,9 @@ use Illuminate\Console\Command;
 
 abstract class Action
 {
-    private bool $failed = false;
+    protected ?string $errorMessage = null;
 
-    protected string | null $errorMessage = null;
+    private bool $failed = false;
 
     public function __construct(
         private Command $artisanCommnad,

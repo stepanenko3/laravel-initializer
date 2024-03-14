@@ -4,8 +4,8 @@ namespace Stepanenko3\LaravelInitializer;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Traits\Conditionable;
-use Stepanenko3\LaravelInitializer\Actions\{Action, Artisan, Callback, Dispatch, External, Publish, PublishTag};
 use Stepanenko3\LaravelInitializer\Contracts\Runner as RunnerContract;
+use Stepanenko3\LaravelInitializerActions\{Action, Artisan, Callback, Dispatch, External, Publish, PublishTag};
 
 class Run implements RunnerContract
 {
@@ -24,23 +24,6 @@ class Run implements RunnerContract
     public function errorMessages(): array
     {
         return $this->errorMessages;
-    }
-
-    private function run(Action $action): self
-    {
-        $action();
-
-        if ($action->failed()) {
-            if (!$this->doneWithErrors) {
-                $this->doneWithErrors = true;
-            }
-
-            if ($message = $action->errorMessage()) {
-                $this->errorMessages[] = $message;
-            }
-        }
-
-        return $this;
     }
 
     public function choice(
@@ -109,5 +92,22 @@ class Run implements RunnerContract
     public function dispatchNow($job): RunnerContract
     {
         return $this->run(new Dispatch($this->artisanCommand, $job, true));
+    }
+
+    private function run(Action $action): self
+    {
+        $action();
+
+        if ($action->failed()) {
+            if (!$this->doneWithErrors) {
+                $this->doneWithErrors = true;
+            }
+
+            if ($message = $action->errorMessage()) {
+                $this->errorMessages[] = $message;
+            }
+        }
+
+        return $this;
     }
 }
