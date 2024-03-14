@@ -7,7 +7,8 @@ use Illuminate\Foundation\Bus\Dispatchable;
 
 class MakeEchoServerConfig
 {
-    use Dispatchable, Queueable;
+    use Dispatchable;
+    use Queueable;
 
     public function __construct(
         protected array $config = [],

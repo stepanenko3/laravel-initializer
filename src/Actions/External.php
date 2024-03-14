@@ -20,7 +20,7 @@ class External extends Action
     {
         $argString = implode(' ', $this->arguments);
 
-        return "<comment>bash</comment> $this->command $argString";
+        return "<comment>bash</comment> {$this->command} {$argString}";
     }
 
     public function run(): bool
@@ -32,7 +32,7 @@ class External extends Action
         $error = $Process->getErrorOutput();
         $exitCode = $Process->getExitCode();
 
-        if ($error and $exitCode > 0) {
+        if ($error && $exitCode > 0) {
             throw new RuntimeException(trim($error));
         }
 

@@ -25,7 +25,7 @@ abstract class Action
             try {
                 return $this->run();
             } catch (Exception $e) {
-                $this->errorMessage = get_class($e) . ': ' . $e->getMessage();
+                $this->errorMessage = $e::class . ': ' . $e->getMessage();
 
                 return false;
             }

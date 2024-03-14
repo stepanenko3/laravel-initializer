@@ -51,9 +51,7 @@ class PublishTag extends Action
     {
         $title = '<comment>publish resource</comment> ';
 
-        $tagStringCallback = function (string $tag) {
-            return " Tag [$tag]";
-        };
+        $tagStringCallback = fn (string $tag) => " Tag [{$tag}]";
 
         if (isset($this->currentArgument['--tag'])) {
             if (is_string($this->currentArgument['--tag'])) {

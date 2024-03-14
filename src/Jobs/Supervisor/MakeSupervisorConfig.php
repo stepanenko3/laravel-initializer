@@ -8,7 +8,8 @@ use Illuminate\Support\Str;
 
 abstract class MakeSupervisorConfig
 {
-    use Dispatchable, Queueable;
+    use Dispatchable;
+    use Queueable;
 
     /**
      * Name of the supervisor process.
@@ -56,7 +57,7 @@ abstract class MakeSupervisorConfig
         $data = array_merge($default_config, $data);
 
         $app_name = Str::slug($this->getApplicationName());
-        $config = "[program:$app_name-$programName]" . PHP_EOL;
+        $config = "[program:{$app_name}-{$programName}]" . PHP_EOL;
 
         foreach ($data as $key => $value) {
             if (is_bool($value)) {
@@ -65,7 +66,7 @@ abstract class MakeSupervisorConfig
                 $value = (string) $value;
             }
 
-            $config .= "$key=$value" . PHP_EOL;
+            $config .= "{$key}={$value}" . PHP_EOL;
         }
 
         return $config;

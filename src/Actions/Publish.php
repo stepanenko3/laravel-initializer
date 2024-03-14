@@ -55,9 +55,7 @@ class Publish extends Action
             $title .= "Provider [{$this->currentArgument['--provider']}]";
         }
 
-        $tagStringCallback = function (string $tag) {
-            return " Tag [$tag]";
-        };
+        $tagStringCallback = fn (string $tag) => " Tag [{$tag}]";
 
         if (isset($this->currentArgument['--tag'])) {
             if (is_string($this->currentArgument['--tag'])) {

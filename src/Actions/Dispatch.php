@@ -27,6 +27,6 @@ class Dispatch extends Action
             ? Container::getInstance()->make(Dispatcher::class)->dispatchNow($this->job)
             : Container::getInstance()->make(Dispatcher::class)->dispatch($this->job);
 
-        return !(is_int($result) and $result > 0);
+        return !(is_int($result) && $result > 0);
     }
 }

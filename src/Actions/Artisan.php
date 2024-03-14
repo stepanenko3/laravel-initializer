@@ -21,7 +21,7 @@ class Artisan extends Action
             ->find($this->command)
             ->getDescription();
 
-        return "<comment>artisan</comment> $this->command ($aboutCommand)";
+        return "<comment>artisan</comment> {$this->command} ({$aboutCommand})";
     }
 
     public function run(): bool

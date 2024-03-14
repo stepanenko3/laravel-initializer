@@ -14,28 +14,26 @@ abstract class AbstractInitializeCommand extends Command
     /**
      * Holds the start time of the command.
      *
-     * @var float|null
+     * @var null|float
      */
     protected $startedAt;
 
     /**
      * Holds the start time of the last processed job, if any.
      *
-     * @var float|null
+     * @var null|float
      */
     protected $latestStartedAt;
 
     /**
      * Holds the status of the last processed job, if any.
      *
-     * @var string|null
+     * @var null|string
      */
     protected $latestStatus;
 
     /**
      * Execute the console command.
-     *
-     * @return void
      */
     public function handle(Container $container)
     {
@@ -58,7 +56,7 @@ abstract class AbstractInitializeCommand extends Command
             $errorMessages = $runner->errorMessages();
 
             $this->components->error(
-                "<fg=gray>[$runTime]</> " . $this->title() . ' done with '
+                "<fg=gray>[{$runTime}]</> " . $this->title() . ' done with '
 
                     . (count($errorMessages) <= 0 ? 'errors.' : sprintf(
                         '[%s] %s:',
@@ -83,7 +81,7 @@ abstract class AbstractInitializeCommand extends Command
             return Command::FAILURE;
         }
 
-        $this->components->info("<fg=gray>[$runTime]</> " . $this->title() . ' done!');
+        $this->components->info("<fg=gray>[{$runTime}]</> " . $this->title() . ' done!');
 
         return Command::SUCCESS;
     }
@@ -109,7 +107,7 @@ abstract class AbstractInitializeCommand extends Command
         $dots = max(terminal()->width() - mb_strlen($text) - mb_strlen($runTime) - 31, 0);
 
         $this->output->write(' ' . str_repeat('<fg=gray>.</>', $dots));
-        $this->output->write(" <fg=gray>$runTime</>");
+        $this->output->write(" <fg=gray>{$runTime}</>");
 
         $this->output->writeln(match ($this->latestStatus = $status) {
             'success' => ' <fg=green;options=bold>DONE</>',

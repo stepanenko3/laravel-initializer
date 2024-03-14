@@ -10,7 +10,7 @@ class InitializerServiceProvider extends ServiceProvider
     /**
      * Register the application services.
      */
-    public function register()
+    public function register(): void
     {
         $this->app->bind(Runner::class, Run::class);
     }
