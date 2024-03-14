@@ -120,9 +120,7 @@ abstract class AbstractInitializeCommand extends Command
         $question,
         array $choices,
         $default = null,
-        #[Deprecated]
         $attempts = null,
-        #[Deprecated]
         $multiple = false,
     ) {
         return $this->components->choice($question, $choices, $default);

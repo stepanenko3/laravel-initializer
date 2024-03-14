@@ -5,7 +5,13 @@ namespace Stepanenko3\LaravelInitializer;
 use Illuminate\Console\Command;
 use Illuminate\Support\Traits\Conditionable;
 use Stepanenko3\LaravelInitializer\Contracts\Runner as RunnerContract;
-use Stepanenko3\LaravelInitializerActions\{Action, Artisan, Callback, Dispatch, External, Publish, PublishTag};
+use Stepanenko3\LaravelInitializer\Actions\Action;
+use Stepanenko3\LaravelInitializer\Actions\Artisan;
+use Stepanenko3\LaravelInitializer\Actions\Callback;
+use Stepanenko3\LaravelInitializer\Actions\Dispatch;
+use Stepanenko3\LaravelInitializer\Actions\External;
+use Stepanenko3\LaravelInitializer\Actions\Publish;
+use Stepanenko3\LaravelInitializer\Actions\PublishTag;
 
 class Run implements RunnerContract
 {
